@@ -62,6 +62,8 @@ namespace Application
             var db = scope.ServiceProvider.GetRequiredService<BaseContext>();
             db.Database.Migrate();
 
+            if (!File.Exists("movielist.csv")) return;
+
             using var stream = new StreamReader("movielist.csv");
 
             var records = CsvHelpers.MountRecordsFromCsv<MovieDto>(stream);
