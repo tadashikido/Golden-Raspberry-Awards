@@ -16,12 +16,12 @@ namespace Services.Services
 
         public ConsecutiveProducersAwardsDto GetConsecutiveProducersAwards()
         {
-            var producers = _unitOfWork.Movies.GetAll(x => x.Winner).ToList()
+            var producers = _unitOfWork.MovieProducers.GetAll(x => x.Movie.Winner).ToList()
                 .GroupBy(x => x.Producer)
                 .Select(g => new
                 {
                     Producer = g.Key,
-                    Movies = g.OrderBy(x => x.Year).ToList(),
+                    Movies = g.Select(x => x.Movie).OrderBy(x => x.Year).ToList(),
                 })
                 .Where(x => x.Movies.Count > 1)
                 .Select(x => new

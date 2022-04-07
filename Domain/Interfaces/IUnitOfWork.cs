@@ -10,6 +10,7 @@ namespace Domain.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IMovieRepository Movies { get; }
+        IMovieProducerRepository MovieProducers { get; }
 
         int SaveChanges();
         void BeginTransaction();

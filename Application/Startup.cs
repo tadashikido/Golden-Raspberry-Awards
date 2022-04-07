@@ -68,49 +68,65 @@ namespace Application
 
             var records = CsvHelpers.MountRecordsFromCsv<MovieDto>(stream);
 
-            var producers = new List<Producer>();
-            var studios = new List<Studio>();
-            var movies = new List<Movie>();
+            var producersList = new List<Producer>();
+            var studiosList = new List<Studio>();
 
             records.ForEach(x =>
             {
-                var producer = producers.Where(y => y.Name == x.Producer).FirstOrDefault();
-
-                if (producer == null)
-                {
-                    producer = new Producer
-                    {
-                        Name = x.Producer
-                    };
-
-                    producers.Add(producer);
-                }
-
-                var studio = studios.Where(y => y.Name == x.Studio).FirstOrDefault();
-
-                if (studio == null)
-                {
-                    studio = new Studio
-                    {
-                        Name = x.Studio
-                    };
-
-                    studios.Add(studio);
-                }
-
                 var movie = new Movie
                 {
                     Year = x.Year,
                     Title = x.Title,
-                    Winner = x.Winner == "yes",
-                    Producer = producer,
-                    Studio = studio
+                    Winner = x.Winner == "yes"
                 };
 
-                movies.Add(movie);
+                var producers = x.Producer.Split(new string[] { ",", " and " }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
+
+                foreach (var p in producers)
+                {
+                    var producer = producersList.Where(y => y.Name == p).FirstOrDefault();
+
+                    if (producer == null)
+                    {
+                        producer = new Producer
+                        {
+                            Name = x.Producer
+                        };
+
+                        producersList.Add(producer);
+                    }
+
+                    db.Add(new MovieProducer
+                    {
+                        Movie = movie,
+                        Producer = producer
+                    });
+                }
+
+                var studios = x.Studio.Split(new string[] { ",", " and " }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
+
+                foreach (var s in studios)
+                {
+                    var studio = studiosList.Where(y => y.Name == s).FirstOrDefault();
+
+                    if (studio == null)
+                    {
+                        studio = new Studio
+                        {
+                            Name = x.Producer
+                        };
+
+                        studiosList.Add(studio);
+                    }
+
+                    db.Add(new MovieStudio
+                    {
+                        Movie = movie,
+                        Studio = studio
+                    });
+                }
             });
 
-            db.Movies.AddRange(movies);
             db.SaveChanges();
         }
     }

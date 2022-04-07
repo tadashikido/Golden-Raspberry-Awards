@@ -22,9 +22,11 @@ namespace Data
             _db = ceContext;
 
             Movies = new MovieRepository(ceContext);
+            MovieProducers = new MovieProducerRepository(ceContext);
         }
 
         public IMovieRepository Movies { get; private set; }
+        public IMovieProducerRepository MovieProducers { get; private set; }
 
         public void BeginTransaction()
         {

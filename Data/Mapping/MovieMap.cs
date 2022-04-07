@@ -31,6 +31,14 @@ namespace Data.Mapping
 
             builder.Property(e => e.Winner)
                    .HasColumnName("WINNER");
+
+            builder.HasMany<MovieProducer>()
+                   .WithOne(x => x.Movie)
+                   .HasForeignKey(x => x.MovieId);
+
+            builder.HasMany<MovieStudio>()
+                   .WithOne(x => x.Movie)
+                   .HasForeignKey(x => x.MovieId);
         }
     }
 }

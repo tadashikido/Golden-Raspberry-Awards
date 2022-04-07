@@ -26,7 +26,7 @@ namespace Data.Mapping
                    .HasMaxLength(80)
                    .HasColumnName("NAME");
 
-            builder.HasMany<Movie>()
+            builder.HasMany<MovieProducer>()
                    .WithOne(x => x.Producer)
                    .HasForeignKey(x => x.ProducerId);
         }

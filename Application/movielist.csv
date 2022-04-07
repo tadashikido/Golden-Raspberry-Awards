@@ -1,6 +1,5 @@
 year;title;studios;producers;winner
 1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
-1981;Teste;Associated Film Distribution;Allan Carr;yes
 1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
 1980;The Formula;MGM, United Artists;Steve Shagan;
 1980;Friday the 13th;Paramount Pictures;Sean S. Cunningham;
@@ -39,8 +38,7 @@ year;title;studios;producers;winner
 1986;Under the Cherry Moon;Warner Bros.;Bob Cavallo, Joe Ruffalo and Steve Fargnoli;yes
 1986;Blue City;Paramount Pictures;William L. Hayward and Walter Hill;
 1986;Cobra;Warner Bros., Cannon Films;Yoram Globus and Menahem Golan;
-1986;Shanghai Surprise;MGM;John Kohn;yes
-1987;Teste2;MGM;John Kohn;yes
+1986;Shanghai Surprise;MGM;John Kohn;
 1987;Leonard Part 6;Columbia Pictures;Bill Cosby;yes
 1987;Ishtar;Columbia Pictures;Warren Beatty;
 1987;Jaws: The Revenge;Universal Studios;Joseph Sargent;
@@ -83,10 +81,8 @@ year;title;studios;producers;winner
 1994;Wyatt Earp;Warner Bros.;Kevin Costner, Lawrence Kasdan and Jim Wilson;
 1995;Showgirls;MGM, United Artists;Charles Evans and Alan Marshall;yes
 1995;Congo;Paramount Pictures;Kathleen Kennedy and Sam Mercer;
-1995;It's Pat;Touchstone Pictures;Charles B. Wessler;yes
-2005;Teste3;Touchstone Pictures;Charles B. Wessler;yes
-1995;The Scarlet Letter;Hollywood Pictures;Roland Joffé and Andrew G. Vajna;yes
-2005;Teste 4;Hollywood Pictures;Roland Joffé and Andrew G. Vajna;yes
+1995;It's Pat;Touchstone Pictures;Charles B. Wessler;
+1995;The Scarlet Letter;Hollywood Pictures;Roland Joffé and Andrew G. Vajna;
 1995;Waterworld;Universal Studios;Kevin Costner, John Davis, Charles Gordon and Lawrence Gordon;
 1996;Striptease;Columbia Pictures, Castle Rock Entertainment;Andrew Bergman and Mike Lobell;yes
 1996;Barb Wire;PolyGram Filmed Entertainment, Gramercy Pictures;Todd Moyer, Mike Richardson and Brad Wyman;

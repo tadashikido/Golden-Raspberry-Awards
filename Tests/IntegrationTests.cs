@@ -3,6 +3,7 @@ using Domain.DTO;
 using Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -89,59 +90,65 @@ namespace Tests
                 Name = "Jerry Weintraub"
             };
 
-            db.Add(new Movie
+            var movie = new Movie
             {
                 Year = 1980,
                 Title = "Can't Stop the Music",
-                Producer = producer,
-                Studio = studio,
                 Winner = true
-            });
+            };
 
-            db.Add(new Movie
+            db.Add(new MovieProducer { Movie = movie, Producer = producer });
+            db.Add(new MovieStudio { Movie = movie, Studio = studio });
+
+            var movie2 = new Movie
             {
                 Year = 1981,
                 Title = "Cruising",
-                Producer = producer,
-                Studio = studio,
                 Winner = true
-            });
+            };
 
-            db.Add(new Movie
+            db.Add(new MovieProducer { Movie = movie2, Producer = producer });
+            db.Add(new MovieStudio { Movie = movie2, Studio = studio });
+
+            var movie3 = new Movie
             {
                 Year = 1985,
                 Title = "Butterfly",
-                Producer = producer2,
-                Studio = studio,
                 Winner = true
-            });
+            };
 
-            db.Add(new Movie
+            db.Add(new MovieProducer { Movie = movie3, Producer = producer2 });
+            db.Add(new MovieStudio { Movie = movie3, Studio = studio });
+
+            var movie4 = new Movie
             {
                 Year = 1986,
                 Title = "Megaforce",
-                Producer = producer2,
-                Studio = studio,
                 Winner = true
-            });
+            };
 
-            db.Add(new Movie
+            db.Add(new MovieProducer { Movie = movie4, Producer = producer2 });
+            db.Add(new MovieStudio { Movie = movie4, Studio = studio });
+
+            var movie5 = new Movie
             {
                 Year = 1988,
                 Title = "Two of a Kind",
-                Producer = producer2,
-                Studio = studio,
                 Winner = true
-            });
+            };
 
-            db.Add(new Movie
+            db.Add(new MovieProducer { Movie = movie5, Producer = producer2 });
+            db.Add(new MovieStudio { Movie = movie5, Studio = studio });
+
+            var movie6 = new Movie
             {
                 Year = 1997,
                 Title = "Rhinestone",
-                Producer = producer2,
-                Studio = studio,
                 Winner = true
-            });
+            };
+
+            db.Add(new MovieProducer { Movie = movie6, Producer = producer2 });
+            db.Add(new MovieStudio { Movie = movie6, Studio = studio });
 
             db.SaveChanges();
         }

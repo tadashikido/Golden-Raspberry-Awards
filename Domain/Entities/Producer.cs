@@ -6,6 +6,6 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
 
-        public List<Movie> Movies { get; set; }
+        public List<MovieProducer> MovieProducer { get; set; }
     }
 }

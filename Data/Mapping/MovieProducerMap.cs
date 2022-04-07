@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Data.Mapping
 {
-    public class StudioMap : IEntityTypeConfiguration<Studio>
+    public class MovieProducerMap : IEntityTypeConfiguration<MovieProducer>
     {
-        public void Configure(EntityTypeBuilder<Studio> builder)
+        public void Configure(EntityTypeBuilder<MovieProducer> builder)
         {
-            builder.ToTable("STUDIOS");
+            builder.ToTable("MOVIES_PRODUCERS");
 
             builder.HasKey(e => e.Id);
 
@@ -22,13 +22,11 @@ namespace Data.Mapping
                    .ValueGeneratedOnAdd()
                    .IsRequired();
 
-            builder.Property(e => e.Name)
-                   .HasMaxLength(80)
-                   .HasColumnName("NAME");
+            builder.Property(e => e.MovieId)
+                   .HasColumnName("ID_MOVIE");
 
-            builder.HasMany<MovieStudio>()
-                   .WithOne(x => x.Studio)
-                   .HasForeignKey(x => x.StudioId);
+            builder.Property(e => e.ProducerId)
+                   .HasColumnName("ID_PRODUCER");
         }
     }
 }

@@ -11,24 +11,24 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    public class MovieRepository : BaseRepository<Movie>, IMovieRepository
+    public class MovieProducerRepository : BaseRepository<MovieProducer>, IMovieProducerRepository
     {
-        public MovieRepository(BaseContext baseContext) : base(baseContext) { }
+        public MovieProducerRepository(BaseContext baseContext) : base(baseContext) { }
 
-        private IQueryable<Movie> GetIncludedQueryable()
+        private IQueryable<MovieProducer> GetIncludedQueryable()
         {
-            return _dbSet.Include(x => x.MovieProducer).ThenInclude(x => x.Producer)
-                         .Include(x => x.MovieStudio).ThenInclude(x => x.Studio);
+            return _dbSet.Include(x => x.Movie)
+                         .Include(x => x.Producer);
         }
 
-        public override Movie Get(int id)
+        public override MovieProducer Get(int id)
         {
             var query = GetIncludedQueryable();
 
             return query.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public override IList<Movie> GetAll(Expression<Func<Movie, bool>> filter = null)
+        public override IList<MovieProducer> GetAll(Expression<Func<MovieProducer, bool>> filter = null)
         {
             var query = GetIncludedQueryable();
 
